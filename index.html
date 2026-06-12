@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BingoGriefchik — анархический Minecraft сервер</title>
+  <meta name="description" content="mc.BingoGriefchik.ru — анархический Minecraft сервер с модовыми сборками, приватами в виде блоков, донатом и наборами." />
+  <meta name="theme-color" content="#0e0f14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== TOP NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22"><path d="M16 2l12 7v14l-12 7L4 23V9z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M11 11l5 3 5-3M16 14v7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-text" id="brandText">Bingo<span class="brand-accent">Grief</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Главное меню">
+        <a href="#home" class="nav-link active" data-nav="home"><span class="nl-ico">🏠</span><span data-i18n="nav.home">Главная</span></a>
+        <a href="#servers" class="nav-link" data-nav="servers"><span class="nl-ico">🗄️</span><span data-i18n="nav.servers">Серверы</span></a>
+        <a href="#news" class="nav-link" data-nav="news"><span class="nl-ico">💬</span><span data-i18n="nav.news">Новости</span></a>
+        <a href="#shop" class="nav-link nav-link-accent" data-nav="shop"><span class="nl-ico">🛒</span><span data-i18n="nav.shop">Магазин</span></a>
+        <a href="#forum" class="nav-link" data-nav="forum"><span class="nl-ico">📋</span><span data-i18n="nav.forum">Форум</span></a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Сменить тему" title="Сменить тему">🌙</button>
+        <button class="icon-btn" id="langToggle" aria-label="Сменить язык" title="Сменить язык">RU</button>
+        <button class="btn btn-primary nav-download" id="copyIpNav" data-i18n="nav.download">Скачать</button>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== SECTION 1: HERO ===== -->
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="online-pill"><span class="dot"></span><span data-i18n="hero.onlineLbl">Онлайн:</span> <b id="statOnline">128</b> <span data-i18n="hero.players">игроков</span></span>
+        <h1 class="hero-title">
+          <span data-i18n="hero.welcome">Добро пожаловать на</span><br />
+          <span class="hero-brand" id="serverName">BingoGriefchik</span>
+        </h1>
+        <p class="hero-sub" id="serverDesc">Анархический сервер с приватами в виде блоков, донатом и наборами. Выбери свой путь.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" id="playBtn"><span data-i18n="hero.play">Начать играть</span> <span class="play-ico">▶</span></button>
+          <button class="btn btn-ghost btn-lg" id="copyIp"><span id="serverIp">mc.BingoGriefchik.ru</span></button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong id="statVersion">1.20.x</strong><span data-i18n="hero.version">версия</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong id="statMode">Анархия</strong><span data-i18n="hero.mode">режим</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong id="statServers">3</strong><span data-i18n="hero.serversLbl">сервера</span></div>
+        </div>
+      </div>
+      <a href="#servers" class="scroll-hint" aria-label="Прокрутить вниз">
+        <span data-i18n="hero.scroll">Прокрути вниз</span>
+        <span class="mouse"><span class="wheel"></span></span>
+      </a>
+    </section>
+
+    <!-- ===== SECTION 2: SERVERS ===== -->
+    <section class="section servers" id="servers">
+      <div class="divider"><span class="diamond"></span></div>
+      <div class="section-head">
+        <h2 data-i18n="servers.title">Наши серверы</h2>
+        <p data-i18n="servers.sub">В основе каждого сервера — собственные разработки и оригинальный контент. Мы вручную отбираем дополнения, чтобы подарить уникальный игровой опыт.</p>
+      </div>
+      <div class="server-filters" id="serverFilters"></div>
+      <div class="server-grid" id="serverGrid"></div>
+    </section>
+
+    <!-- ===== SECTION 3: NEWS ===== -->
+    <section class="section news" id="news">
+      <div class="divider"><span class="diamond"></span></div>
+      <div class="section-head">
+        <h2 data-i18n="news.title">Новости и обновления</h2>
+        <p data-i18n="news.sub">Здесь мы рассказываем обо всём, что происходит на сервере — от обзоров обновлений до анонсов ивентов и акций. Заглядывай, чтобы быть в курсе.</p>
+      </div>
+      <div class="news-list" id="newsList"></div>
+    </section>
+
+    <!-- ===== SECTION 4: SHOP ===== -->
+    <section class="section shop" id="shop">
+      <div class="divider"><span class="diamond"></span></div>
+      <div class="section-head">
+        <h2 data-i18n="shop.title">Магазин</h2>
+        <p data-i18n="shop.sub">Поддержи проект и получи преимущества: привилегии, кейсы, префиксы и донат-наборы.</p>
+      </div>
+      <div class="shop-tabs" id="shopTabs"></div>
+      <div class="shop-grid" id="shopGrid"></div>
+    </section>
+
+    <!-- ===== SECTION 5: FORUM / FAQ ===== -->
+    <section class="section forum" id="forum">
+      <div class="divider"><span class="diamond"></span></div>
+      <div class="section-head">
+        <h2 data-i18n="forum.title">Форум и правила</h2>
+        <p data-i18n="forum.sub">Главное, что нужно знать перед началом игры на проекте.</p>
+      </div>
+      <div class="forum-grid">
+        <div class="rules-card">
+          <h3 data-i18n="forum.rules">📋 Правила сервера</h3>
+          <ul id="rulesList"></ul>
+        </div>
+        <div class="faq-card" id="faq">
+          <h3 data-i18n="faq.title">❓ Частые вопросы</h3>
+          <div id="faqList"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="22" height="22"><path d="M16 2l12 7v14l-12 7L4 23V9z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M11 11l5 3 5-3M16 14v7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="brand-text">Bingo<span class="brand-accent">Grief</span></span>
+        </a>
+        <p class="footer-desc" data-i18n="footer.desc">Minecraft-сеть с модовыми сборками, приватами и живым сообществом.</p>
+        <div class="socials">
+          <a href="#" class="social" aria-label="Discord" title="Discord">🎮</a>
+          <a href="#" class="social" aria-label="VK" title="VK">🅥</a>
+          <a href="#" class="social" aria-label="Telegram" title="Telegram">✈️</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4 data-i18n="footer.main">Основное</h4>
+          <a href="#home" data-i18n="footer.play">Начать игру</a>
+          <a href="#servers" data-i18n="nav.servers">Серверы</a>
+          <a href="#shop" data-i18n="nav.shop">Магазин</a>
+          <a href="#forum" data-i18n="forum.rules">Правила</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.activity">Активность</h4>
+          <a href="#news" data-i18n="nav.news">Новости</a>
+          <a href="#shop" data-i18n="footer.bonus">Бонусы</a>
+          <a href="#forum" data-i18n="footer.tops">Топы игроков</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.other">Другое</h4>
+          <a href="#" data-i18n="footer.team">Команда проекта</a>
+          <a href="#" data-i18n="footer.contacts">Контакты</a>
+          <a href="#" data-i18n="footer.terms">Пользовательское соглашение</a>
+          <a href="#" data-i18n="footer.privacy">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> <span id="footerName">BingoGriefchik</span>. <span data-i18n="footer.rights">Все права защищены.</span></span>
+      <span class="muted" data-i18n="footer.disclaimer">Не является официальным продуктом Mojang или Microsoft.</span>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Наверх">↑</button>
+
+  <!-- ===== ADMIN MODAL ===== -->
+  <div class="admin-root" id="adminRoot" hidden>
+    <div class="admin-login" id="adminLogin">
+      <form class="login-card" id="loginForm">
+        <h2>⚙️ Админ-панель</h2>
+        <p class="muted">Введите данные для входа</p>
+        <label>Логин<input type="text" id="loginUser" autocomplete="username" placeholder="admin" /></label>
+        <label>Пароль<input type="password" id="loginPass" autocomplete="current-password" placeholder="••••••••" /></label>
+        <p class="login-error" id="loginError" hidden>Неверный логин или пароль</p>
+        <div class="login-actions">
+          <button type="submit" class="btn btn-primary">Войти</button>
+          <button type="button" class="btn btn-ghost" id="loginClose">На сайт</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="admin-dash" id="adminDash" hidden>
+      <header class="dash-head">
+        <div class="dash-brand">⚙️ Панель управления — <b>BingoGriefchik</b></div>
+        <div class="dash-actions">
+          <a class="btn btn-ghost" href="./" id="dashSite">Открыть сайт</a>
+          <button class="btn btn-ghost" id="dashLogout">Выйти</button>
+        </div>
+      </header>
+      <div class="dash-body">
+        <aside class="dash-side">
+          <button class="dash-tab active" data-tab="preview">Превью</button>
+          <button class="dash-tab" data-tab="general">Сервер</button>
+          <button class="dash-tab" data-tab="servers">Серверы</button>
+          <button class="dash-tab" data-tab="news">Новости</button>
+          <button class="dash-tab" data-tab="shop">Магазин</button>
+          <button class="dash-tab" data-tab="forum">Форум и правила</button>
+        </aside>
+        <div class="dash-content" id="dashContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

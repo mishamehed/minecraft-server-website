@@ -1,0 +1,12 @@
+{
+  "name": "bingo-griefchik",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "serve . -l 3000 -s",
+    "start": "serve . -l 3000 -s"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}
