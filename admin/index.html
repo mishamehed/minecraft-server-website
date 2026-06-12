@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opening admin panel...</title>
+  <meta name="robots" content="noindex" />
+  <script>
+    const basePath = window.location.pathname.replace(/\/admin\/?$/, "/");
+    window.location.replace(basePath + "#admin");
+  </script>
+</head>
+<body>
+  <a id="fallback" href="../#admin">Open admin panel</a>
+  <script>
+    document.getElementById("fallback").href = basePath + "#admin";
+  </script>
+</body>
+</html>

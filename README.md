@@ -4,6 +4,8 @@ Static website for a Minecraft server, built with HTML, CSS, and JavaScript.
 
 Live site: https://mishamehed.github.io/minecraft-server-website/
 
+Admin demo: https://mishamehed.github.io/minecraft-server-website/admin/
+
 ## Features
 
 - Responsive landing page
